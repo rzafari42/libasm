@@ -5,7 +5,6 @@ _ft_strlen:
 	jmp count		;jump to count
 
 count:
-
 	cmp byte[rdi + rax], 0 ;we compare rdi[rax] with '0'
 	jz exit				   ;if equal =>exit
 	inc rax				   ;if not equal, we increment rax
