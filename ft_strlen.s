@@ -11,4 +11,4 @@ count:
 	jmp count			   ;then we do it again and again until rdi[rax] != 0
 
 exit:
-	ret					   ;we return the rdi value
+	ret					   ;we return the rax value
