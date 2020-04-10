@@ -7,13 +7,13 @@ _ft_strcpy:
 cpy_src_dst:
 	cmp byte[rsi + rax],0
 	jz exit
-	mov cl,[rsi + rax]
-	mov [rdi + rax],cl
+	mov bl,[rsi + rax]
+	mov [rdi + rax],bl
 	inc rax
 	jmp cpy_src_dst
 
 exit:
-	mov cl,0
-	mov [rdi + rax],cl
+	mov bl,0
+	mov [rdi + rax],bl
 	mov rax,rdi
 	ret

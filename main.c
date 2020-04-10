@@ -10,7 +10,10 @@ int main(void)
 	printf("real = |%zd|\n", strlen(str1));
 	
 
-	printf("|%s|\n", strcpy(str2, str1));
+	printf("strcpy: |%s|\n", strcpy(str2, str1));
 	printf("|%s|\n", ft_strcpy(str2, str1));
+	
+	printf("strcmp: |%d|\n", ft_strcmp("hella", "hello"));
+	printf("|%d|\n", strcmp("hella","hello"));
 	return(0);
 }

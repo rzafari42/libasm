@@ -9,5 +9,5 @@
 
 ssize_t ft_strlen(char *);
 char 	*ft_strcpy(char *,char *);
-
+int		ft_strcmp(char *, char *);
 #endif
