@@ -15,5 +15,7 @@ int main(void)
 	
 	printf("strcmp: |%d|\n", ft_strcmp("hella", "hello"));
 	printf("|%d|\n", strcmp("hella","hello"));
+
+	printf("\nwrite: %d\n",ft_write(1,"hello world",11));
 	return(0);
 }
