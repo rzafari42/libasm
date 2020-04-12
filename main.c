@@ -16,6 +16,11 @@ int main(void)
 	printf("strcmp: |%d|\n", ft_strcmp("hella", "hello"));
 	printf("|%d|\n", strcmp("hella","hello"));
 
-	printf("\nwrite: %d\n",ft_write(1,"hello world",11));
+	printf("\nwrite: %zd\n",ft_write(1,"hello world",11));
+	
+	char *dst;
+	dst = NULL;
+	printf("strdup: %s\n", (dst = ft_strdup("Hello")));
+	printf("real strdup = %s\n", strdup("Hello"));
 	return(0);
 }
