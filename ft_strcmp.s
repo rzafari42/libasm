@@ -7,14 +7,14 @@ _ft_strcmp:
 	jz exit			  ;if al == 0 => exit
 	cmp bl,0		  ;same
 	jz exit		      ;same
-	cmp bl,al		  ;compare al w/ bl
+	cmp al,bl		  ;compare al w/ bl
 	jne exit		  ;if not equal => exit
 	inc rsi			  ;go to next character (byte)
 	inc rdi			  ;same as above
 	jmp _ft_strcmp	  ;do it again
 	
 exit:
-	movzx rax,al      ;put the al value in rax register then complete with '0'
-	movzx rbx,bl	  ;same as above
+	movzx 	rax,al      ;put the al value in rax register then complete with '0'
+	movzx 	rbx,bl	  ;same as above
 	sub		rax,rbx   ;calculate rax = rax - rbx 
 	ret
