@@ -1,7 +1,7 @@
-global	_ft_write
+global	ft_write
 
-_ft_write:
-	mov rax,0x2000004  ;put the number corresponding to sys_write in rax
+ft_write:
+	mov rax,1		   ;put the number corresponding to sys_write in rax
 	syscall			   ;ask the OS to call the correct function (write)
 	jc exit			   ;if it returns a negative value => exit
 	ret				   ;else: return the value returned by 'write' (number of character effectively read)

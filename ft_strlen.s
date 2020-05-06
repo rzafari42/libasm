@@ -1,6 +1,6 @@
-global	_ft_strlen
+global	ft_strlen
 
-_ft_strlen:
+ft_strlen:
 	XOR rax,rax		;rax = 0
 	jmp count		;jump to count
 

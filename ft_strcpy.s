@@ -1,6 +1,6 @@
-global _ft_strcpy
+global ft_strcpy
 
-_ft_strcpy:
+ft_strcpy:
 	XOR rax,rax
 	jmp cpy_src_dst
 

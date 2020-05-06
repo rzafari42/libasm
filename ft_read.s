@@ -1,7 +1,7 @@
-global _ft_read
+global ft_read
 
-_ft_read:
-	mov rax,0x2000003 ;put the number corresponding to sys_read in rax
+ft_read:
+	mov rax,0 		  ;put the number corresponding to sys_read in rax
 	syscall			  ;ask the OS to call the correct function
 	jc exit			  ;if it returns a negative value => exit
 	ret				  ;else: return the value returned by 'read'
