@@ -1,9 +1,11 @@
-NAME =	libasm.c
+NAME =	libasm.a
 SRC =	ft_read.s ft_strcmp.s ft_strcpy.s\
-	ft_strdup.s ft_strlen.c ft_write.s\
+	ft_strdup.s ft_strlen.s ft_write.s\
 
-OBJ =	$(SRC:.c=.o)
+OBJ =	$(SRC:.s=.o)
 
+%.o : %.s
+	nasm -f elf64 $< -o $@
 all:	$(NAME)
 
 $(NAME):	$(OBJ)
