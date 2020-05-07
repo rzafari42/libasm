@@ -1,19 +1,20 @@
-global ft_strcpy
+section	.text
+global	ft_strcpy
 
 ft_strcpy:
-	XOR rax,rax
-	jmp cpy_src_dst
+	XOR	rax,rax
+	jmp	cpy_src_dst
 
 cpy_src_dst:
-	cmp byte[rsi + rax], 0
+	cmp	byte[rsi + rax],0
 	jz	exit
-	mov bl,[rsi + rax]
-	mov [rdi + rax],bl
-	inc rax
-	jmp cpy_src_dst
+	mov	cl,[rsi + rax]
+	mov	[rdi + rax],cl
+	inc	rax
+	jmp	cpy_src_dst
 
 exit:
-	mov bl,0
-	mov [rdi + rax], bl
+	mov	cl,0
+	mov	[rdi + rax], cl
 	mov	rax, rdi
 	ret

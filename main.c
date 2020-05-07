@@ -110,10 +110,10 @@ void	ft_dup(void)
 int main(void)
 {
 	ft_len();
-	ft_cpy();
 	ft_cmp();
 	ft__write();
 	ft__read();
+	ft_cpy();
 	ft_dup();
 
 	return(0);
