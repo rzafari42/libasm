@@ -5,17 +5,20 @@ extern	ft_strcpy
 extern	malloc
 
 ft_strdup:
-	push	rdi
-	call	ft_strlen
+	push	rbp
+	;call	ft_strlen
 	inc 	rax
+	mov	r8,rdi
 	mov	rdi,rax
 	call	malloc
-	pop	rsi
-	;cmp	rax,0
-	;je	exit
+	cmp	rax,0
+	jle	malloc_error
+	mov	rsi,r8
 	mov	rdi,rax
-	call	ft_strcpy
+	;call	ft_strcpy
+	pop	rbp
 	ret
 
-exit:
+malloc_error:	
+	XOR rax,rax
 	ret

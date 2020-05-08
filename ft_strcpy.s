@@ -8,13 +8,13 @@ ft_strcpy:
 cpy_src_dst:
 	cmp	byte[rsi + rax],0
 	jz	exit
-	mov	cl,[rsi + rax]
-	mov	[rdi + rax],cl
+	mov	rcx,[rsi + rax]
+	mov	[rdi + rax],rcx
 	inc	rax
 	jmp	cpy_src_dst
 
 exit:
-	mov	cl,0
-	mov	[rdi + rax], cl
+	mov	rcx,0
+	mov	[rdi + rax], rcx
 	mov	rax, rdi
 	ret

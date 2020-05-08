@@ -13,9 +13,18 @@ ft_strcmp:
 	inc rsi			;go to next character (byte)
 	inc rdi			;same as above
 	jmp ft_strcmp		;do it again
-	
+
 exit:
-	movzx 	rax,al		;put the al value in rax register then complete with '0'
-	movzx 	rbx,bl		;same as above
 	sub	rax,rbx		;calculate rax = rax - rbx 
+	jl	exit1
+	je	exit2	
+	mov	rax,1
+	ret
+
+exit1:
+	mov	rax,-1
+	ret
+
+exit2:
+	mov	rax,0
 	ret

@@ -41,7 +41,7 @@ void	ft_cpy(void)
 void	ft_cmp(void)
 {	
 	printf("-----------FT_STRCMP----------\n");
-	printf("mine = |%d|\n", ft_strcmp("hello", "hello"));
+	printf("mine = |%d|\n", ft_strcmp("hello","hello"));
 	printf("real = |%d|\n", strcmp("hello","hello"));
 	printf("mine = |%d|\n", ft_strcmp("hello", "HELLA"));
 	printf("real = |%d|\n", strcmp("hello", "HELLA"));
@@ -49,7 +49,9 @@ void	ft_cmp(void)
 	printf("real = |%d|\n", strcmp("hello_world !", "Bonjour le monde !"));
 	printf("mine = |%d|\n", ft_strcmp("stayathome", "#restezchezvous"));
 	printf("real = |%d|\n", strcmp("#stayathome", "#resterchezvous"));
-	printf("mine = |%d|\n", ft_strcmp("#42atom", "#42MAISON"));
+	printf("mine = |%d|\n", ft_strcmp("Hi","Hi"));
+	printf("real = |%d|\n", strcmp("HI","HI"));
+	printf("mine = |%d|\n", ft_strcmp("#42atom", "#42aAISON"));
 	printf("real = |%d|\n", strcmp("#42atom", "#42MAISON"));
 	printf("mine = |%d|\n", ft_strcmp("", "vide"));
 	printf("real = |%d|\n", strcmp("", "vide"));
@@ -64,12 +66,13 @@ void	ft__write(void)
 
 	fd = 1;
 	printf("-----------FT_WRITE-----------\n");
-	printf("mine = %zd\n",ft_write(fd, "hello world", 11));
-	printf("real = %zd\n",write(fd, "hello world", 11));
+	printf("errno = %d\n",errno);
+	printf("mine = %zd\n",ft_write(5000, "hello world", 11));
+	printf("real = %zd\n",write(5000, "hello world", 11));
 	printf("mine = %zd\n",ft_write(fd, "hi", 2));
 	printf("real = %zd\n",write(fd, "hi", 2));
-	printf("mine = %zd\n",ft_write(fd, "hola, como estas ?", 18));
-	printf("real = %zd\n",write(fd, "hola, como estas ?", 18));
+	printf("mine = %zd\n",ft_write(50000, "hola, como estas ?", 18));
+	printf("real = %zd\n",write(50000, "hola, como estas ?", 18));
 	printf("mine = %zd\n",ft_write(fd, "welcome hi", 9));	
 	printf("real = %zd\n",write(fd, "welcome hi", 9));
 	printf("------------------------------\n\n");
@@ -96,11 +99,11 @@ void	ft_dup(void)
 	
 	dst = NULL;
 	printf("-----------FT_STRDUP-----------\n");
-	printf("mine = %s\n", (dst = ft_strdup("Hello")));
+	printf("mine = %s\n", ft_strdup("Hello"));
 	free(dst);
 	printf("real = %s\n", (dst = strdup("Hello")));
 	free(dst);
-	printf("mine = %s\n", (dst = ft_strdup("Hello")));
+	printf("mine = %s\n", ft_strdup("Hello"));
 	free(dst);
 	printf("real = %s\n", (dst = strdup("Hello")));
 	free(dst);
@@ -111,8 +114,8 @@ int main(void)
 {
 	ft_len();
 	ft_cmp();
-	ft__write();
-	ft__read();
+//	ft__write();
+//	ft__read();
 	ft_cpy();
 	ft_dup();
 

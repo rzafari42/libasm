@@ -16,6 +16,9 @@ $(NAME):	$(OBJ)
 	ar	rc $(NAME)	$(OBJ)
 	ranlib $(NAME)
 
+test:
+	$(CC) -fsanitize=address main.c $(NAME)
+
 clean:
 	/bin/rm -f $(OBJ)
 fclean:	clean
