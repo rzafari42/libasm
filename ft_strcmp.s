@@ -15,7 +15,7 @@ ft_strcmp:
 	jmp ft_strcmp		;do it again
 
 exit:
-	sub	rax,rbx		;calculate rax = rax - rbx 
+	sub	al,bl		;calculate rax = al - bl
 	jl	exit1
 	je	exit2	
 	mov	rax,1
