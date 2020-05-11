@@ -10,8 +10,8 @@ ft_write:
 	ret			;else: return the value returned by 'write' (number of character effectively read)
 
 exit:
-	;mov r15,rax		;put errno in r8
+	mov r15,rax		;put errno in r8
 	call __errno_location	;call __errno_location to get the address of errno
-	;mov [rax],r15
+	mov [rax],r15
 	mov rax,-1		   ;if 'write' returns a negative value, we put '-1' in rax
 	ret				   ;then we return rax
