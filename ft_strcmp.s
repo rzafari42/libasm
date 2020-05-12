@@ -15,16 +15,16 @@ ft_strcmp:
 	jmp ft_strcmp		;do it again
 
 exit:
-	sub	rax,rbx		;calculate rax = rax - rbx
+	sub	eax,ebx		;calculate rax = rax - rbx
 	jl	exit1
 	je	exit2	
-	mov	rax,1
+	mov	eax,1
 	ret
 
 exit1:
-	mov	rax,-1
+	mov	eax,-1
 	ret
 
 exit2:
-	mov	rax,0
+	mov	eax,0
 	ret
