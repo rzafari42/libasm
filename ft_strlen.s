@@ -3,7 +3,6 @@ global	ft_strlen
 
 ft_strlen:
 	XOR rax,rax		;rax = 0
-	jmp count		;jump to count
 
 count:
 	cmp byte[rdi + rax], 0 ;we compare rdi[rax] with '0'

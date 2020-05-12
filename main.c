@@ -15,16 +15,22 @@ void	ft_len(void)
 	printf("real = |%zd|\n", strlen(""));
 	printf("mine = |%zd|\n", ft_strlen("\n"));
 	printf("real = |%zd|\n", strlen("\n"));
+	printf("mine = |%zd|\n", ft_strlen("asdfasdf''///##!!@"));
+	printf("real = |%zd|\n", strlen("asdfasdf''///##!!@"));
+	printf("mine = |%zd|\n", ft_strlen("the\0hidden"));
+	printf("real = |%zd|\n", strlen("the\0hidden"));
+	printf("mine = |%zd|\n", ft_strlen("Lorem ipsum dolor sit amet, consectetur adipiscing\elit. Sed in malesuada purus. Etiam a scelerisque massa. Ut non euismod elit. Aliquam\bibendum dolor mi, id fringilla tellus pulvinar eu. Fusce vel fermentum sem. Cras\volutpat, eros eget rhoncus rhoncus, diam augue egestas dolor, vitae rutrum nisi\felis sed purus. Mauris magna ex, mollis non suscipit eu, lacinia ac turpis. Phasellus\ac tortor et lectus fermentum lobortis eu at mauris. Vestibulum sit amet posuere\tortor, sit amet consequat amet."));	
+	printf("real = |%zd|\n", strlen("Lorem ipsum dolor sit amet, consectetur adipiscing\elit. Sed in malesuada purus. Etiam a scelerisque massa. Ut non euismod elit. Aliquam\bibendum dolor mi, id fringilla tellus pulvinar eu. Fusce vel fermentum sem. Cras\volutpat, eros eget rhoncus rhoncus, diam augue egestas dolor, vitae rutrum nisi\felis sed purus. Mauris magna ex, mollis non suscipit eu, lacinia ac turpis. Phasellus\ac tortor et lectus fermentum lobortis eu at mauris. Vestibulum sit amet posuere\tortor, sit amet consequat amet."));
 	printf("------------------------------\n\n");
 }
 
 void	ft_cpy(void)
 {
-	char dest[100];
+	char dest[500];
 
 	printf("-----------FT_STRCPY----------\n");		
-	printf("mine = |%s|\n", ft_strcpy(dest, "HELLA"));
-	printf("real = |%s|\n", strcpy(dest, "HELLA"));
+	printf("mine = |%s|\n", ft_strcpy(dest, "HELLO"));
+	printf("real = |%s|\n", strcpy(dest, "HELLO"));
 	printf("mine = |%s|\n", ft_strcpy(dest, "Bonjour le monde !"));
 	printf("real = |%s|\n", strcpy(dest, "Bonjour le monde !"));
 	printf("mine = |%s|\n", ft_strcpy(dest, "#restezchezvous"));
@@ -35,6 +41,18 @@ void	ft_cpy(void)
 	printf("real = |%s|\n", strcpy(dest, "vide"));
 	printf("mine = |%s|\n", ft_strcpy(dest, "rien"));
 	printf("real = |%s|\n", strcpy(dest, "rien"));
+	printf("mine = |%s|\n", ft_strcpy(dest, ""));
+	printf("real = |%s|\n", strcpy(dest, ""));
+	printf("mine = |%s|\n", ft_strcpy(dest, "abc"));
+	printf("real = |%s|\n", strcpy(dest, "abc"));
+	printf("mine = |%s|\n", ft_strcpy(dest, "asl;fjl;asdjfjkasdl;fjadjsf"));	
+	printf("real = |%s|\n", strcpy(dest, "asl;fjl;asdjfjkasdl;fjadjsf"));
+	printf("mine = |%s|\n", ft_strcpy(dest, "yope\0la"));
+	printf("real = |%s|\n", strcpy(dest, "yope\0la"));
+	printf("mine = |%s|\n", ft_strcpy(dest, "Lorem ipsum dolor sit amet, consectetur adipiscing\elit. Sed in malesuada purus. Etiam a scelerisque massa. Ut non euismod elit. Aliquam\bibendum dolor mi, id fringilla tellus pulvinar eu. Fusce vel fermentum sem. Cras\volutpat, eros eget rhoncus rhoncus, diam augue egestas dolor, vitae rutrum nisi\felis sed purus. Mauris magna ex, mollis non suscipit eu, lacinia ac turpis. Phasellus\ac tortor et lectus fermentum lobortis eu at mauris. Vestibulum sit amet posuere\tortor, sit amet consequat amet.\n"));
+	printf("real = |%s|\n", strcpy(dest, "Lorem ipsum dolor sit amet, consectetur adipiscing\elit. Sed in malesuada purus. Etiam a scelerisque massa. Ut non euismod elit. Aliquam\bibendum dolor mi, id fringilla tellus pulvinar eu. Fusce vel fermentum sem. Cras\volutpat, eros eget rhoncus rhoncus, diam augue egestas dolor, vitae rutrum nisi\felis sed purus. Mauris magna ex, mollis non suscipit eu, lacinia ac turpis. Phasellus\ac tortor et lectus fermentum lobortis eu at mauris. Vestibulum sit amet posuere\tortor, sit amet consequat amet.\n"));
+	printf("mine = |%s|\n", ft_strcpy(dest,"\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0b\x0c\x0d\x0e\x0f\n"));	
+	printf("real = |%s|\n", strcpy(dest,"\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0b\x0c\x0d\x0e\x0f\n"));
 	printf("------------------------------\n\n");
 }
 
@@ -57,6 +75,10 @@ void	ft_cmp(void)
 	printf("real = |%d|\n", strcmp("", "vide"));
 	printf("mine = |%d|\n", ft_strcmp("\n", "rien"));
 	printf("real = |%d|\n", strcmp("\n", "rien"));
+	printf("mine = |%d|\n", ft_strcmp("the\0hidden", "thehidden"));
+	printf("real = |%d|\n", strcmp("the\0hidden", "thehidden"));
+	printf("mine = |%d|\n", ft_strcmp("asdklfjasdfj////asdf'''asdf3##", "asdklfjasdfj////asdf'''asdf3##"));
+	printf("real = |%d|\n", strcmp("asdklfjasdfj////asdf'''asdf3##", "asdklfjasdfj////asdf'''asdf3##"));
 	printf("------------------------------\n\n");
 }
 
@@ -65,14 +87,22 @@ void	ft__write(void)
 	int fd;
 
 	fd = 1;
+	errno = 0;
 	printf("-----------FT_WRITE-----------\n");
 	printf("mine = %ld errno = %d\n",ft_write(5000, "hello world", 11), errno);
+	errno = 0;
 	printf("real = %ld errno = %d\n",write(5000, "hello world", 11), errno);
+	errno = 0;
 	printf("mine = %ld errno= %d\n",ft_write(fd, "hi", 2), errno);
+	errno = 0;
 	printf("real = %ld erno = %d\n",write(fd, "hi", 2), errno);
+	errno = 0;
 	printf("mine = %ld errno = %d\n",ft_write(50000, "hola, como estas ?", 18), errno);
+	errno = 0;
 	printf("real = %ld errno = %d\n",write(50000, "hola, como estas ?", 18), errno);
+	errno = 0;
 	printf("mine = %ld errno = %d\n",ft_write(fd, "welcome hi", 9), errno);	
+	errno = 0;
 	printf("real = %ld errno = %d\n",write(fd, "welcome hi", 9), errno);
 	printf("------------------------------\n\n");
 }
@@ -106,6 +136,13 @@ void	ft_dup(void)
 	free(dst);
 	printf("real = %s\n", (dst = strdup("Hello")));
 	free(dst);
+	printf("mine = %s\n", (dst = ft_strdup("asl;fjl;asdjfjkasdl;fjadjsf")));
+	free(dst);
+	printf("real = %s\n", (dst = strdup("asl;fjl;asdjfjkasdl;fjadjsf")));
+	free(dst);
+	printf("mine = %s\n", (dst = ft_strdup("42atom\0maison")));
+	free(dst);
+	printf("real = %s\n", (dst = strdup("42atom\0maison")));
 	printf("------------------------------\n\n");	
 }
 

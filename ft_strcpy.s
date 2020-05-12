@@ -3,7 +3,6 @@ global	ft_strcpy
 
 ft_strcpy:
 	XOR	rax,rax
-	jmp	cpy_src_dst
 
 cpy_src_dst:
 	cmp	byte[rsi + rax],0
