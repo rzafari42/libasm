@@ -1,6 +1,7 @@
 section	.text
 global	ft_write
 extern	__errno_location
+extern	ft_strlen
 
 ft_write:
 	mov rax,1		;put the number corresponding to sys_write in rax
