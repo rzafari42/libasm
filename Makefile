@@ -17,8 +17,8 @@ $(NAME):	$(OBJ)
 	ranlib $(NAME)
 
 test:
-	$(CC) main.c $(NAME)
-
+	$(CC) -L -lasm main.c $(NAME)
+	
 clean:
 	/bin/rm -f $(OBJ)
 fclean:	clean
