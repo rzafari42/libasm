@@ -66,15 +66,14 @@ void	ft__write(void)
 
 	fd = 1;
 	printf("-----------FT_WRITE-----------\n");
-	printf("errno = %d\n",errno);
-	printf("mine = %zd\n",ft_write(5000, "hello world", 11));
-	printf("real = %zd\n",write(5000, "hello world", 11));
-	printf("mine = %zd\n",ft_write(fd, "hi", 2));
-	printf("real = %zd\n",write(fd, "hi", 2));
-	printf("mine = %zd\n",ft_write(50000, "hola, como estas ?", 18));
-	printf("real = %zd\n",write(50000, "hola, como estas ?", 18));
-	printf("mine = %zd\n",ft_write(fd, "welcome hi", 9));	
-	printf("real = %zd\n",write(fd, "welcome hi", 9));
+	printf("mine = %ld errno = %d\n",ft_write(5000, "hello world", 11), errno);
+	printf("real = %ld errno = %d\n",write(5000, "hello world", 11), errno);
+	printf("mine = %ld errno= %d\n",ft_write(fd, "hi", 2), errno);
+	printf("real = %ld erno = %d\n",write(fd, "hi", 2), errno);
+	printf("mine = %ld errno = %d\n",ft_write(50000, "hola, como estas ?", 18), errno);
+	printf("real = %ld errno = %d\n",write(50000, "hola, como estas ?", 18), errno);
+	printf("mine = %ld errno = %d\n",ft_write(fd, "welcome hi", 9), errno);	
+	printf("real = %ld errno = %d\n",write(fd, "welcome hi", 9), errno);
 	printf("------------------------------\n\n");
 }
 
@@ -99,11 +98,11 @@ void	ft_dup(void)
 	
 	dst = NULL;
 	printf("-----------FT_STRDUP-----------\n");
-	printf("mine = %s\n", ft_strdup("Hello"));
+	printf("mine = %s\n", dst = ft_strdup("Hello"));
 	free(dst);
 	printf("real = %s\n", (dst = strdup("Hello")));
 	free(dst);
-	printf("mine = %s\n", ft_strdup("Hello"));
+	printf("mine = %s\n", dst = ft_strdup("Hello"));
 	free(dst);
 	printf("real = %s\n", (dst = strdup("Hello")));
 	free(dst);
@@ -114,8 +113,8 @@ int main(void)
 {
 	ft_len();
 	ft_cmp();
-//	ft__write();
-//	ft__read();
+	ft__write();
+	ft__read();
 	ft_cpy();
 	ft_dup();
 
