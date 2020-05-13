@@ -114,11 +114,32 @@ void	ft__read(void)
 	int fd;
 	
 	printf("-----------FT_READ------------\n");
+	errno = 0;
+	fd = -1;
+	printf("mine = |%ld| errno = %d\n", ft_read(fd, buffer, 8), errno);
+	errno = 0;
+	printf("real = |%ld| errno = %d\n", read(fd, buffer, 8), errno);
+	errno = 0;
 	fd = open("test.txt", O_RDONLY);
-	printf("mine = |%ld|\n", ft_read(fd, buffer, 8));
+	printf("mine = |%ld| eerno = %d\n", ft_read(fd, buffer, 8), errno);
 	close(fd);
+	errno = 0;
 	fd = open("test.txt", O_RDONLY);
-	printf("real = |%ld|\n", read(fd, buffer, 8));
+	printf("real = |%ld| errno = %d\n", read(fd, buffer, 8), errno);
+	close(fd);
+	errno = 0;
+	fd = open("test1.txt", O_RDONLY);
+	printf("mine = |%ld| errno = %d\n", ft_read(fd, buffer, 8), errno);
+	close(fd);
+	errno = 0;
+	fd = open("test1.txt", O_RDONLY);
+	printf("real = |%ld| errno = %d\n", read(fd, buffer, 8), errno);
+	close(fd);
+	errno = 0;
+	fd = 450;
+	printf("mine = |%ld| errno = %d\n", ft_read(fd, buffer, 8), errno);
+	errno = 0;
+	printf("real = |%ld| errno = %d\n", read(fd, buffer, 8), errno);
 	printf("-------------------------------\n\n");
 }
 
@@ -128,21 +149,21 @@ void	ft_dup(void)
 	
 	dst = NULL;
 	printf("-----------FT_STRDUP-----------\n");
-	printf("mine = %s\n", dst = ft_strdup("Hello"));
+	printf("mine = |%s|\n", dst = ft_strdup("Bonjour"));
 	free(dst);
-	printf("real = %s\n", (dst = strdup("Hello")));
+	printf("real = |%s|\n", (dst = strdup("Bonjour")));
 	free(dst);
-	printf("mine = %s\n", dst = ft_strdup("Hello"));
+	printf("mine = |%s|\n", dst = ft_strdup("Hello"));
 	free(dst);
-	printf("real = %s\n", (dst = strdup("Hello")));
+	printf("real = |%s|\n", (dst = strdup("Hello")));
 	free(dst);
-	printf("mine = %s\n", (dst = ft_strdup("asl;fjl;asdjfjkasdl;fjadjsf")));
+	printf("mine = |%s|\n", (dst = ft_strdup("asl;fjl;asdjfjkasdl;fjadjsf")));
 	free(dst);
-	printf("real = %s\n", (dst = strdup("asl;fjl;asdjfjkasdl;fjadjsf")));
+	printf("real = |%s|\n", (dst = strdup("asl;fjl;asdjfjkasdl;fjadjsf")));
 	free(dst);
-	printf("mine = %s\n", (dst = ft_strdup("42atom\0maison")));
+	printf("mine = |%s|\n", (dst = ft_strdup("42atom\0maison")));
 	free(dst);
-	printf("real = %s\n", (dst = strdup("42atom\0maison")));
+	printf("real = |%s|\n", (dst = strdup("42atom\0maison")));
 	printf("------------------------------\n\n");	
 }
 
@@ -154,6 +175,5 @@ int main(void)
 	ft__read();
 	ft_cpy();
 	ft_dup();
-
 	return(0);
 }
