@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   nextmain.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rzafari42 <marvin@42.fr>                   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/05/13 21:32:50 by rzafari42         #+#    #+#             */
+/*   Updated: 2020/05/13 21:32:53 by rzafari42        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libasm.h"
 
 void	ft_cpy(void)
@@ -9,14 +21,10 @@ void	ft_cpy(void)
 	printf("real = |%s|\n", strcpy(dest, "HELLO"));
 	printf("mine = |%s|\n", ft_strcpy(dest, "Bonjour le monde !"));
 	printf("real = |%s|\n", strcpy(dest, "Bonjour le monde !"));
-	printf("mine = |%s|\n", ft_strcpy(dest, "#restezchezvous"));
-	printf("real = |%s|\n", strcpy(dest, "#resterchezvous"));
 	printf("mine = |%s|\n", ft_strcpy(dest, "#42MAISON"));
 	printf("real = |%s|\n", strcpy(dest, "#42MAISON"));
 	printf("mine = |%s|\n", ft_strcpy(dest, "vide"));
 	printf("real = |%s|\n", strcpy(dest, "vide"));
-	printf("mine = |%s|\n", ft_strcpy(dest, "rien"));
-	printf("real = |%s|\n", strcpy(dest, "rien"));
 	printf("mine = |%s|\n", ft_strcpy(dest, ""));
 	printf("real = |%s|\n", strcpy(dest, ""));
 	printf("mine = |%s|\n", ft_strcpy(dest, "abc"));
