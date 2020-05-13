@@ -1,7 +1,6 @@
 section	.text
 global	ft_write
 extern	__errno_location
-extern	ft_strlen
 
 ft_write:
 	mov rax,1		;put the number corresponding to sys_write in rax
@@ -11,8 +10,9 @@ ft_write:
 	ret			;else: return the value returned by 'write' (number of character effectively read)
 
 exit:
-	mov r15,rax		;put errno in r8
+	mov r10,rax		;put errno in r8
 	call __errno_location	;call __errno_location to get the address of errno
-	mov [rax],r15
-	mov rax,-1		   ;if 'write' returns a negative value, we put '-1' in rax
-	ret				   ;then we return rax
+	neg r10
+	mov [rax],r10
+	mov rax,-1		;if 'write' returns a negative value, we put '-1' in rax
+	ret			;then we return rax
